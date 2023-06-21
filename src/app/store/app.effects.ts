@@ -7,6 +7,8 @@ import { DataService } from './data.service';
 
 @Injectable()
 export class AppEffects {
+  constructor(private actions$: Actions, private dataService: DataService) {}
+
   fetchData$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fetchData),
@@ -18,9 +20,4 @@ export class AppEffects {
       )
     )
   );
-
-  constructor(
-    private actions$: Actions,
-    private dataService: DataService
-  ) {}
 }
